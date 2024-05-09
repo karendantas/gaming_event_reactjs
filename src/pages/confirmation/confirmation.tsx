@@ -11,6 +11,11 @@ export function ConfirmationPage(){
     const navigate = useNavigate();
     const userData = localStorage.getItem(StorageKey);
     const {name, games} = userData && JSON.parse(userData) ;
+
+
+    function handleGoBack (){
+        navigate(-1)
+    }
     return (
         <S.ConfirmationContainer>
             <S.ConfirmationContent>
@@ -18,7 +23,7 @@ export function ConfirmationPage(){
                 <p>Voce foi convocado para batalhar no universo do {games || 'Seu jogo favorito'}!
                     Aperte o botão para confirmar sua inscrição e voce já estará participando do campeonato Ezport
                  </p>
-                 <Button title = "Confirmar" onClick={ () => navigate('/')} />
+                 <Button title = "Confirmar" onClick={ handleGoBack} />
             </S.ConfirmationContent>
         </S.ConfirmationContainer>
     )

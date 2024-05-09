@@ -1,15 +1,15 @@
 import * as S from './ButtonStyles';
-import { ButtonHTMLAttributes } from 'react';
 
-type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
+type Props = {
     title: string;
+    onClick?: () => void;
 
 }
 
-export function Button ({title}:Props){
+export function Button ({title, onClick}:Props){
     return(
         <S.ButtonContainer>
-            <S.Button type='submit'>{title} </S.Button>
+            <S.Button onClick={onClick} type='submit'>{title}  </S.Button>
         </S.ButtonContainer>
     )
 }
