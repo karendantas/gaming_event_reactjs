@@ -1,8 +1,16 @@
 import * as S from './styles';
 
 import { Input } from '../../components/Input';
+import { Select } from '../../components/Select';
 
 export function Home (){
+    const gameOptions = [
+        { value: 'league of legends', name:'League of Legends'},
+        { value: 'valorant', name:'Valorant'},
+        { value: 'csgo', name:'CsGo'}
+    ]
+
+
     return (
         <S.MainContainer>
         <S.InfosContainer>
@@ -42,7 +50,7 @@ export function Home (){
               </S.FormGroup>
   
               <S.FormGroup>
-               
+                  <Select name='games' options={gameOptions}/>
               </S.FormGroup>
             </S.Form>
           </S.FormContent>
