@@ -7,17 +7,24 @@ import * as S from './styles';
 import { Button } from '../../components/Button';
 
 
+//Definindo a representação do formulário e validações
 const createUserFormSchema = z.object ({
-  name: z.string().min(1, 'Nome não pode estar vazio'),
-  login: z.string().min(3, 'Login deve ter mais de 3 letras' ),
-  email: z.string().min(1,'Email não pode estar vazio').email('Email inválido'),
-  password: z.string().min(6, 'Senha deve ter mais de 6 letras'),
-  games: z.string()
+  name: z.string().min(1, 'Nome não pode estar vazio!'),
+  login: z.string().min(3, 'Login deve ter mais de 3 letras!' ),
+  email: z.string().min(1,'Email não pode estar vazio').email('Email inválido!'),
+  password: z.string().min(6, 'Senha deve ter mais de 6 letras!'),
+  games: z.string().min(1, 'Selecione uma opção!')
 })
+
+//Criando uma tipagem com base na representação
+type createUserFormData = z.infer<typeof createUserFormSchema> 
 
 export function Home (){
 
-    const { register, handleSubmit } = useForm({
+    const { register, 
+            handleSubmit, 
+            formState: {errors} 
+          } = useForm<createUserFormData> ({
       resolver: zodResolver(createUserFormSchema)
     });
 
@@ -49,18 +56,22 @@ export function Home (){
               <h1>FORMULÁRIO</h1>
               <S.FormGroup>
                   <S.Input type='text' placeholder='Nome' {...register('name')} />
+                  {errors.name && <span> {errors.name.message} </span>}
               </S.FormGroup>
   
               <S.FormGroup>
                 <S.Input type='text' placeholder='Login' {...register('login')} />
+                {errors.login && <span> {errors.login.message} </span>}
               </S.FormGroup>
   
               <S.FormGroup>
                 <S.Input type='email' placeholder='Email' {...register('email')} />
+                {errors.email && <span> {errors.email.message} </span>}
               </S.FormGroup>
   
               <S.FormGroup>
                 <S.Input type='password' placeholder='Senha' {...register('password')} />
+                {errors.password && <span> {errors.password.message }</span>}
               </S.FormGroup>
   
               <S.FormGroup>
