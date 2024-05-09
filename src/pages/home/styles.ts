@@ -11,8 +11,7 @@ export const MainContainer = styled.main`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: relative;
-
+    
 `;
 
 export const InfosContainer = styled.div`

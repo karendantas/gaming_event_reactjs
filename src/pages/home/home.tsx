@@ -2,6 +2,7 @@ import * as S from './styles';
 
 import { Input } from '../../components/Input';
 import { Select } from '../../components/Select';
+import { Button } from '../../components/Button';
 
 export function Home (){
     const gameOptions = [
@@ -52,6 +53,8 @@ export function Home (){
               <S.FormGroup>
                   <Select name='games' options={gameOptions}/>
               </S.FormGroup>
+
+              <Button title = "JOGAR"/>
             </S.Form>
           </S.FormContent>
         </S.FormContainer>
