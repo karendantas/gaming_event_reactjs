@@ -1,6 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 
 export const  GlobalStyle = createGlobalStyle`
+
 :root{
 font-family: 'Roboto', sans-serif;
     line-height: 1.6;
@@ -30,5 +31,18 @@ font-family: 'Roboto', sans-serif;
 ::placeholder{
     color: var(--brown-700)
 }
+
+@media (max-width: 1200px) {
+    html {
+        font-size: 90%;
+    }
+}
+
+@media (max-width: 550px){
+    html{
+        font-size: 70%;
+    }
+}
+
 
 `
