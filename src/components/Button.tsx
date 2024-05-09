@@ -1,7 +1,9 @@
 import * as S from './ButtonStyles';
+import { ButtonHTMLAttributes } from 'react';
 
-type Props = {
+type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
     title: string;
+
 }
 
 export function Button ({title}:Props){

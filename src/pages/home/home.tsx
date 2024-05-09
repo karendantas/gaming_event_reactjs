@@ -13,7 +13,9 @@ const createUserFormSchema = z.object ({
   login: z.string().min(3, 'Login deve ter mais de 3 letras!' ),
   email: z.string().min(1,'Email não pode estar vazio').email('Email inválido!'),
   password: z.string().min(6, 'Senha deve ter mais de 6 letras!'),
-  games: z.string().min(1, 'Selecione uma opção!')
+  games: z.enum(['league of legends','valorant','csgo'], { errorMap: ()=> 
+    ({ message: 'Selecione uma opção'}) 
+    }),
 })
 
 //Criando uma tipagem com base na representação
@@ -23,13 +25,21 @@ export function Home (){
 
     const { register, 
             handleSubmit, 
+            reset,
             formState: {errors} 
           } = useForm<createUserFormData> ({
       resolver: zodResolver(createUserFormSchema)
     });
 
-    function CreateUser(data:any){
-      console.log(JSON.stringify(data,null,2))
+    function OnSubmitForm(data:any){
+        
+      reset({
+        name: '',
+        email: '',
+        login:'',
+        password: '',
+        games: undefined,
+      });
     }
   
     return (
@@ -52,7 +62,7 @@ export function Home (){
   
         <S.FormContainer>
           <S.FormContent>
-            <S.Form onSubmit={handleSubmit(CreateUser)}>
+            <S.Form onSubmit={handleSubmit(OnSubmitForm)}>
               <h1>FORMULÁRIO</h1>
               <S.FormGroup>
                   <S.Input type='text' placeholder='Nome' {...register('name')} />
@@ -76,11 +86,12 @@ export function Home (){
   
               <S.FormGroup>
                   <S.Select {...register('games')}>
-                      <option value="" disabled> Selecione um jogo</option>
-                      <option value="League of legends">League of legends</option>
-                      <option value="Valorant"> Valorant </option>
-                      <option value="CsGO">CsGo</option>
+                      <option value="" disabled selected> Selecione um jogo</option>
+                      <option value="league of legends">League of legends</option>
+                      <option value="valorant"> Valorant </option>
+                      <option value="csgo">CsGo</option>
                   </S.Select>
+                  {errors.games && <span> {errors.games.message} </span>}
               </S.FormGroup>
 
               <Button title = "JOGAR"/>
