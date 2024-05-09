@@ -15,7 +15,7 @@ export function Select ({name, options}:Props){
         <S.Select name={name} >
             <option value='' disabled>  Selecione um jogo </option>
             {options.map( (option)=>(
-                <option> {option.name}  </option>
+                <option value ={option.value}> {option.name}  </option>
             ))
             
             }

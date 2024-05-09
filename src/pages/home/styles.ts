@@ -11,6 +11,13 @@ export const MainContainer = styled.main`
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @media (max-width: 950px ) {
+        height: 100%;
+        flex-direction: column;
+        padding: 2rem 0;
+        
+    }
     
 `;
 
@@ -25,6 +32,10 @@ export const InfosContainer = styled.div`
     h1{
         font-size: 7rem;
         font-weight: 900;
+
+        @media (max-width: 550px){
+            font-size: 5rem;
+        }
     }
     h1>span{ color: var(--yellow-500)}
     p {
@@ -32,6 +43,23 @@ export const InfosContainer = styled.div`
         font-size: 1.5rem;
         width: 80%;
         text-align: justify;
+
+        @media (max-width: 950px) {
+            text-align: center;
+        }
+        @media (max-width: 550px){
+            width: 90%; 
+            margin: 1rem 0 1rem 0;
+        
+        }
+    }
+
+    @media (max-width: 950px){
+        align-items: center;
+    }
+
+    @media (max-width: 550px){
+        width:90%;
     }
 `;
 
@@ -43,6 +71,7 @@ export const InfosContent = styled.div`
         display: flex;
         align-items: center;
         gap: 1rem;
+
     }
 
     div > p { font-size: 1.5rem;}
@@ -50,6 +79,12 @@ export const InfosContent = styled.div`
         font-size: 2rem;
         color: var(--yellow-500)
     }
+
+    @media (max-width: 550px){
+            flex-direction: column;
+            gap: 0;
+        }
+
 `;
 
 export const FormContainer = styled.div`
@@ -66,6 +101,10 @@ export const FormContainer = styled.div`
     display: flex;
     justify-content: center;
     position: relative;
+
+    @media (max-width:550px){
+        width: 90%;
+    }
 `;
 
 export const FormContent = styled.div`
