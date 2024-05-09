@@ -1,17 +1,30 @@
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod'
+import { z } from 'zod';
+
 import * as S from './styles';
 
-import { Input } from '../../components/Input';
-import { Select } from '../../components/Select';
 import { Button } from '../../components/Button';
 
+
+const createUserFormSchema = z.object ({
+  name: z.string().min(1, 'Nome não pode estar vazio'),
+  login: z.string().min(3, 'Login deve ter mais de 3 letras' ),
+  email: z.string().min(1,'Email não pode estar vazio').email('Email inválido'),
+  password: z.string().min(6, 'Senha deve ter mais de 6 letras'),
+  games: z.string()
+})
+
 export function Home (){
-    const gameOptions = [
-        { value: 'league of legends', name:'League of Legends'},
-        { value: 'valorant', name:'Valorant'},
-        { value: 'csgo', name:'CsGo'}
-    ]
 
+    const { register, handleSubmit } = useForm({
+      resolver: zodResolver(createUserFormSchema)
+    });
 
+    function CreateUser(data:any){
+      console.log(JSON.stringify(data,null,2))
+    }
+  
     return (
         <S.MainContainer>
         <S.InfosContainer>
@@ -32,26 +45,31 @@ export function Home (){
   
         <S.FormContainer>
           <S.FormContent>
-            <S.Form>
+            <S.Form onSubmit={handleSubmit(CreateUser)}>
               <h1>FORMULÁRIO</h1>
               <S.FormGroup>
-                <Input type = "text" placeholder="Nome" />
+                  <S.Input type='text' placeholder='Nome' {...register('name')} />
               </S.FormGroup>
   
               <S.FormGroup>
-                <Input type = "text" placeholder="Login" />
+                <S.Input type='text' placeholder='Login' {...register('login')} />
               </S.FormGroup>
   
               <S.FormGroup>
-                <Input type = "email" placeholder="Email" />
+                <S.Input type='email' placeholder='Email' {...register('email')} />
               </S.FormGroup>
   
               <S.FormGroup>
-                <Input type = "password" placeholder="Senha" />
+                <S.Input type='password' placeholder='Senha' {...register('password')} />
               </S.FormGroup>
   
               <S.FormGroup>
-                  <Select name='games' options={gameOptions}/>
+                  <S.Select {...register('games')}>
+                      <option value="" disabled> Selecione um jogo</option>
+                      <option value="League of legends">League of legends</option>
+                      <option value="Valorant"> Valorant </option>
+                      <option value="CsGO">CsGo</option>
+                  </S.Select>
               </S.FormGroup>
 
               <Button title = "JOGAR"/>

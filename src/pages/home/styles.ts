@@ -141,3 +141,25 @@ export const FormGroup = styled.form`
 
     }
 `
+
+export const Input = styled.input`
+    width: 100%;
+    height: 90%;
+    padding-left: 20px;
+
+    border: none;
+    border-radius: 5px;
+    background-color: var(--gray-100);
+    outline-color:  var(--purple-400);
+`;
+
+export const Select = styled.select`
+    width: 100%;
+    height: 90%;
+    padding-left: 20px;
+
+    border: none;
+    border-radius: 5px;
+    background-color: var(--gray-100);
+    outline-color:  var(--purple-400);
+`

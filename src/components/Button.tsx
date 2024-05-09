@@ -7,7 +7,7 @@ type Props = {
 export function Button ({title}:Props){
     return(
         <S.ButtonContainer>
-            <S.Button>{title} </S.Button>
+            <S.Button type='submit'>{title} </S.Button>
         </S.ButtonContainer>
     )
 }
