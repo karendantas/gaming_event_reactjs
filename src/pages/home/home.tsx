@@ -2,6 +2,8 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod';
 
+import {useNavigate} from 'react-router-dom';
+
 import * as S from './styles';
 
 import { Button } from '../../components/Button';
@@ -22,6 +24,8 @@ const createUserFormSchema = z.object ({
 type createUserFormData = z.infer<typeof createUserFormSchema> 
 
 export function Home (){
+    const StorageKey = 'userData';
+    const navigate = useNavigate();
 
     const { register, 
             handleSubmit, 
@@ -31,8 +35,14 @@ export function Home (){
       resolver: zodResolver(createUserFormSchema)
     });
 
-    function OnSubmitForm(data:any){
-        
+    function OnSubmitForm(data:createUserFormData){
+      try {
+        localStorage.setItem(StorageKey, JSON.stringify(data))
+      }catch(error){
+        console.log("Não foi possível salvar", error)
+      }
+      navigate('/confirmation');
+
       reset({
         name: '',
         email: '',
