@@ -23,8 +23,9 @@ const createUserFormSchema = z.object ({
 //Criando uma tipagem com base na representação
 type createUserFormData = z.infer<typeof createUserFormSchema> 
 
+export const StorageKey = 'userData';
+
 export function Home (){
-    const StorageKey = 'userData';
     const navigate = useNavigate();
 
     const { register, 
