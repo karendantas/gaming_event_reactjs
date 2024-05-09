@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const ConfirmationContainer = styled.div`
     height: 100vh;
 
+    padding: 0 2rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -25,6 +26,18 @@ export const ConfirmationContent = styled.div`
     p{
         font-size: 1.3rem;
         text-align: center;
+    }
+
+    @media (max-width: 950px){
+        width: 90%;
+    }
+    @media (max-width: 450px){
+        h1{
+            font-size: 2.4rem;
+        }
+        p{
+            font-size: 1rem;
+        }
     }
 
 `
