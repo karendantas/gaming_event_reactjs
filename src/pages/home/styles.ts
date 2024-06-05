@@ -27,6 +27,10 @@ export const InfosContainer = styled.div`
     flex-direction: column;
     align-items: flex-start;
     font-weight: 500;
+<<<<<<< HEAD
+=======
+    color: ${props => props.theme.colors["brown-700"]};
+>>>>>>> 10ae8113e29d8ce20330a57393cbcce15d46b336
 
     h1{
         font-size: 7rem;
