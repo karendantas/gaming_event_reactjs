@@ -27,7 +27,7 @@ export const InfosContainer = styled.div`
     flex-direction: column;
     align-items: flex-start;
     font-weight: 500;
-    color: var(--brown-700);
+    color: ${props => props.theme.colors["brown-700"]};
 
     h1{
         font-size: 7rem;
@@ -37,7 +37,7 @@ export const InfosContainer = styled.div`
             font-size: 5rem;
         }
     }
-    h1>span{ color: var(--yellow-500)}
+    h1 > span {color: ${props => props.theme.colors["yellow-500"]}};
     p {
         margin: 1rem 1rem 1rem 0;
         font-size: 1.5rem;
@@ -77,7 +77,7 @@ export const InfosContent = styled.div`
     div > p { font-size: 1.5rem;}
     div i{
         font-size: 2rem;
-        color: var(--yellow-500)
+        color: ${props => props.theme.colors["yellow-500"]};
     }
 
     @media (max-width: 550px){
@@ -91,8 +91,8 @@ export const FormContainer = styled.div`
     width:  37.5rem ; /* 600px */
     height: 50rem ; /* 800px */
 
-    background-color: var(--yellow-500);
-    border: 5px solid var(--brown-700);
+    background-color: ${props => props.theme.colors["yellow-500"]};
+    border: 5px solid ${props => props.theme.colors["brown-700"]};
 
     border-radius: 20px;
     border-bottom-right-radius:60px ;
@@ -112,9 +112,9 @@ export const FormContent = styled.div`
     width: calc(90% + 15px);
 
     margin-top: 2rem;
-    border: 15px solid var(--brown-700);
+    border: 15px solid ${props => props.theme.colors["brown-700"]};
     border-radius: 5px;
-    background-color: var(--white-100);
+    background-color: ${props => props.theme.colors.white};
 `;
 
 export const Form = styled.form`
@@ -126,7 +126,7 @@ export const Form = styled.form`
     place-items: center;
     gap: 2.5rem;
 
-    h1{ color: var(--purple-400); }
+    h1{ color: ${props => props.theme.colors["purple-400"]}; }
     
 `;
 
@@ -137,7 +137,7 @@ export const FormGroup = styled.form`
     span {
         margin-left: 10px;
         font-size: 0.875rem;
-        color: var(--red-400);
+        color: ${props => props.theme.colors["red-400"]};
 
     }
 `
@@ -149,8 +149,8 @@ export const Input = styled.input`
 
     border: none;
     border-radius: 5px;
-    background-color: var(--gray-100);
-    outline-color:  var(--purple-400);
+    background-color: ${props => props.theme.colors["gray-100"]};
+    outline-color:  ${props => props.theme.colors["purple-400"]};
 `;
 
 export const Select = styled.select`
@@ -160,6 +160,6 @@ export const Select = styled.select`
 
     border: none;
     border-radius: 5px;
-    background-color: var(--gray-100);
-    outline-color:  var(--purple-400);
+    background-color: ${props => props.theme.colors["gray-100"]};
+    outline-color:  ${props => props.theme.colors["purple-400"]};
 `
