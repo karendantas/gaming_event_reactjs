@@ -11,12 +11,8 @@ export const  GlobalStyle = createGlobalStyle`
 }
 
 body {
-<<<<<<< HEAD
     background-color: ${props => props.theme.colors["purple-400"]};
   
-=======
-    background-color: ${props => props.theme.colors["purple-400"]};;
->>>>>>> 10ae8113e29d8ce20330a57393cbcce15d46b336
 }
 
 body, input, button {
