@@ -14,7 +14,7 @@ font-family: 'Roboto', sans-serif;
     --red-400: #ef4444;
     --yellow-500: #ffef5e;
     --brown-700: #292524;
-    background-color: var(--purple-400);
+
 
     font-synthesis: none;
     text-rendering: optimizeLegibility;
@@ -30,6 +30,10 @@ font-family: 'Roboto', sans-serif;
 
 ::placeholder{
     color: var(--brown-700)
+}
+
+body {
+    background-color: var(--purple-400);
 }
 
 @media (max-width: 1200px) {

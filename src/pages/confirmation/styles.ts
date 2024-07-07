@@ -12,7 +12,8 @@ export const ConfirmationContainer = styled.div`
 export const ConfirmationContent = styled.div`
     width: 40rem;
     height: 30rem;
-    background-color: var(--white-100);
+    border: 5px solid var(--yellow-500);
+    border-radius: 10px;
 
     display: flex;
     flex-direction: column;
@@ -27,7 +28,7 @@ export const ConfirmationContent = styled.div`
         font-size: 1.3rem;
         text-align: center;
     }
-
+    
     @media (max-width: 950px){
         width: 90%;
     }

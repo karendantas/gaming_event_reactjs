@@ -37,8 +37,9 @@ export function Home (){
     });
 
     function OnSubmitForm(data:createUserFormData){
+      const dataStore = [data.name, data.games]
       try {
-        localStorage.setItem(StorageKey, JSON.stringify(data))
+        localStorage.setItem(StorageKey, JSON.stringify(dataStore))
       }catch(error){
         console.log("Não foi possível salvar", error)
       }
