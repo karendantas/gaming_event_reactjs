@@ -31,7 +31,7 @@ export function Home (){
     const { register, 
             handleSubmit, 
             reset,
-            formState: {errors} 
+            formState: {errors, isSubmitting} 
           } = useForm<createUserFormData> ({
       resolver: zodResolver(createUserFormSchema)
     });
@@ -106,7 +106,7 @@ export function Home (){
                   {errors.games && <span> {errors.games.message} </span>}
               </S.FormGroup>
 
-              <Button title = "JOGAR"/>
+              <Button title = "JOGAR" disabled = {isSubmitting} />
             </S.Form>
           </S.FormContent>
         </S.FormContainer>
