@@ -15,9 +15,9 @@ export const Button = styled.button`
     font-weight: bold;
     cursor: pointer;
 
-    background-color:  var(--purple-400);
+    background-color: ${props => props.theme.colors["purple-400"]};
     font-size: 1.25rem;
-    color: var(--white-100);
+    color: ${props => props.theme.colors["white"]};
 
 
 `;

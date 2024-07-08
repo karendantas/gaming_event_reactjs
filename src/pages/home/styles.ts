@@ -151,7 +151,7 @@ export const Input = styled.input`
 
     border: none;
     border-radius: 5px;
-    background-color: ${props => props.theme.colors["gray-100"]};
+    background-color: ${props => props.theme.colors["gray-200"]};
     outline-color:  ${props => props.theme.colors["purple-400"]};
 `;
 
@@ -162,6 +162,6 @@ export const Select = styled.select`
 
     border: none;
     border-radius: 5px;
-    background-color: ${props => props.theme.colors["gray-100"]};
+    background-color: ${props => props.theme.colors["gray-200"]};
     outline-color:  ${props => props.theme.colors["purple-400"]};
 `
